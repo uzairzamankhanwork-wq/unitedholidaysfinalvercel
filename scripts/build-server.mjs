@@ -15,7 +15,7 @@ await esbuild.build({
   packages: "bundle",
   sourcemap: true,
   banner: {
-    js: "import { createRequire } from 'node:module';\nconst require = createRequire(import.meta.url);"
+    js: "import { createRequire } from 'node:module';\nconst require = createRequire(import.meta.url);\nprocess.env.SERVER_HOST ||= '0.0.0.0';\nprocess.env.SERVER_PORT ||= process.env.PORT || '10000';"
   },
   define: {
     "API_ROUTES.BASE": '""',
