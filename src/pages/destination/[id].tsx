@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, MessageCircle, MapPin, Clock, Users, Star, Check, X, ChevronLeft, Loader2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { getImageUrl } from '@/lib/image-url';
 
 interface Destination {
   id: number;
@@ -85,7 +86,7 @@ export default function DestinationDetailPage() {
       <section className="relative h-[400px] md:h-[500px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${destination.image}')` }}
+          style={{ backgroundImage: `url('${getImageUrl(destination.image)}')` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900/50" />
         </div>

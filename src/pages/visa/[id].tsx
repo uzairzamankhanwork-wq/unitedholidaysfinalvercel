@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, MessageCircle, Clock, Calendar, DollarSign, CheckCircle, ChevronLeft, FileText, Loader2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { getImageUrl } from '@/lib/image-url';
 
 interface Visa {
   id: number;
@@ -83,7 +84,7 @@ export default function VisaDetailPage() {
       <section className="relative h-[400px] md:h-[500px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${visa.image}')` }}
+          style={{ backgroundImage: `url('${getImageUrl(visa.image)}')` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900/50" />
         </div>

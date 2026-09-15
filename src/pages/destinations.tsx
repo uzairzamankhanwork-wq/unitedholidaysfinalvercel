@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Phone, MessageCircle, MapPin, Calendar, Users, Star, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { getImageUrl } from '@/lib/image-url';
 
 interface Destination {
   id: number;
@@ -102,7 +103,7 @@ export default function DestinationsPage() {
                   {/* Image */}
                   <div className="relative h-64 overflow-hidden">
                     <img
-                      src={destination.image}
+                      src={getImageUrl(destination.image)}
                       alt={destination.name}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     />

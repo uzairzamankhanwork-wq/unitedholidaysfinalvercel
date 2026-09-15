@@ -76,6 +76,8 @@ export const serverBefore = (server) => {
     }
   }));
 
+  server.use('/uploads', express.static(join(__dirname, 'uploads')));
+
   // No-cache for dynamic responses (API routes, SPA fallback, etc.).
   // express.static already sent the response for static files above.
   server.use((req, res, next) => {

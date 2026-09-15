@@ -23,7 +23,7 @@ export default async function handler(req: Request, res: Response) {
     const folderPath = folder || 'general';
     
     // Create directory path
-    const uploadDir = `/shared-storage/public/assets/uploads/${folderPath}`;
+    const uploadDir = path.join(process.cwd(), 'dist', 'uploads', folderPath);
     const filePath = path.join(uploadDir, sanitizedFilename);
     
     // Ensure directory exists
@@ -43,7 +43,7 @@ export default async function handler(req: Request, res: Response) {
     await fs.writeFile(filePath, fileBuffer);
     
     // Return public URL
-    const publicUrl = `/airo-assets/uploads/${folderPath}/${sanitizedFilename}`;
+    const publicUrl = `/uploads/${folderPath}/${sanitizedFilename}`;
     
     res.json({
       success: true,

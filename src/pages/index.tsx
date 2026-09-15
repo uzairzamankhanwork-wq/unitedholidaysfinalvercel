@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useState, useEffect } from 'react';
+import { getImageUrl } from '@/lib/image-url';
 
 interface Destination {
   id: number;
@@ -188,7 +189,7 @@ Please contact this customer as soon as possible.`;
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/airo-assets/images/pages/home/hero')` }}
+          style={{ backgroundImage: `url('${getImageUrl(undefined)}')` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900/50" />
         </div>
@@ -339,7 +340,7 @@ Please contact this customer as soon as possible.`;
                   >
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
-                        src={destination.image}
+                        src={getImageUrl(destination.image)}
                         alt={destination.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
@@ -393,7 +394,7 @@ Please contact this customer as soon as possible.`;
                   {/* Country Image */}
                   <div className="relative h-40 overflow-hidden">
                     <img
-                      src={visa.image}
+                        src={getImageUrl(visa.image)}
                       alt={visa.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
