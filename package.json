@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:frontend": "vite build --config vite.frontend.config.ts",
+    "build:backend": "vite build && node scripts/build-server.mjs",
     "start": "node dist/server.bundle.mjs",
     "preview": "vite preview",
     "test": "vitest",
