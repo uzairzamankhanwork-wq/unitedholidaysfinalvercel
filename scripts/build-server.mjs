@@ -1,12 +1,22 @@
 import esbuild from "esbuild";
+import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const apiRoot = path.join(root, ".api");
+const generatedServer = path.join(apiRoot, "server.js");
+const renderServer = path.join(apiRoot, "server.render.js");
+const serverSource = await readFile(generatedServer, "utf8");
+await writeFile(
+  renderServer,
+  serverSource
+    .replace('SERVER_HOST: "127.0.0.1"', 'SERVER_HOST: "0.0.0.0"')
+    .replace('SERVER_PORT: "3000"', 'SERVER_PORT: "10000"')
+);
 
 await esbuild.build({
-  entryPoints: [path.join(apiRoot, "server.js")],
+  entryPoints: [renderServer],
   bundle: true,
   platform: "node",
   target: "node22",
