@@ -11,6 +11,10 @@ services:
         value: production
       - key: PORT
         value: 10000
+      - key: SERVER_HOST
+        value: 0.0.0.0
+      - key: SERVER_PORT
+        value: 10000
       # Set this to your deployed Vercel URL, e.g. https://united-holidays.vercel.app
       - key: FRONTEND_DOMAIN
         sync: false
